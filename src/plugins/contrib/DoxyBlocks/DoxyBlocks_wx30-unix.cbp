@@ -67,7 +67,6 @@
 		<Unit filename="ExtractDocs.cpp" />
 		<Unit filename="manifest.xml" />
 		<Unit filename="update30" />
-		<Unit filename="update30.bat" />
 		<Unit filename="version.h" />
 		<Unit filename="wxsmith/ConfigPanel.wxs" />
 		<Extensions>
