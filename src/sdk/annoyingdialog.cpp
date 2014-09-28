@@ -7,20 +7,29 @@
  * $HeadURL$
  */
 
+// sdk_precomp.h must be the first include in the file to work as a PCH
 #include "sdk_precomp.h"
+
 #ifndef CB_PRECOMP
+    // wxWidgets non GUI headers in sdk_common.h
+    #include <wx/intl.h>
+
+    // wxWidgets GUI headers in sdk_common.h
     #include <wx/button.h>
     #include <wx/checkbox.h>
-    #include <wx/intl.h>
     #include <wx/sizer.h>
+    #include <wx/statbmp.h>
     #include <wx/stattext.h>
-    #include "cbexception.h"
-    #include "configmanager.h"
-    #include "manager.h"
-    #include "logmanager.h"
+
+    // CB SDK Headers in sdk_common.h
     #include "globals.h"
-#endif
-#include <wx/statbmp.h>
+    #include "cbexception.h"
+    #include "manager.h"
+    #include "configmanager.h"
+    #include "logmanager.h"
+#endif // #ifndef CB_PRECOMP
+
+
 #include "annoyingdialog.h"
 
 BEGIN_EVENT_TABLE(AnnoyingDialog, wxScrollingDialog)
