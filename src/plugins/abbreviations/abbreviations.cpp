@@ -7,21 +7,28 @@
  * $HeadURL$
  */
 
+// sdk.h must be the first include in the file to work as a PCH
 #include <sdk.h>
 
 #ifndef CB_PRECOMP
-    #include <configurationpanel.h>
-    #include <cbstyledtextctrl.h>
+    // wxWidgets non GUI headers in sdk_common.h
+
+    // wxWidgets GUI headers in sdk_common.h
+    #include <wx/textdlg.h>
+
+    // CB SDK Headers in sdk_common.h
     #include <editorcolourset.h>
-#endif
+#endif // #ifndef CB_PRECOMP
 
-#include "abbreviations.h"
-#include "abbreviationsconfigpanel.h"
-
+#include <configurationpanel.h>
+#include <cbstyledtextctrl.h>
 #include <ccmanager.h>
 #include <editor_hooks.h>
 #include <sqplus.h>
 #include <sc_base_types.h>
+
+#include "abbreviations.h"
+#include "abbreviationsconfigpanel.h"
 
 
 // Register the plugin with Code::Blocks.

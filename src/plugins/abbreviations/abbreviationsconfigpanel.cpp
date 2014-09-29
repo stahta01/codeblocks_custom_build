@@ -7,21 +7,31 @@
  * $HeadURL$
  */
 
+// sdk.h must be the first include in the file to work as a PCH
 #include <sdk.h>
-#include "abbreviationsconfigpanel.h"
 
 #ifndef CB_PRECOMP
-    #include <wx/xrc/xmlres.h>
-    #include <wx/fontutil.h>
+    // wxWidgets non GUI headers in sdk_common.h
     #include <wx/choicdlg.h>
 
-    #include <configmanager.h>
+    // wxWidgets GUI headers in sdk_common.h
+    #include <wx/combobox.h>
+    #include <wx/textdlg.h>
+    #include <wx/xrc/xmlres.h>
+
+    // CB SDK Headers in sdk_common.h
     #include <editorcolourset.h>
+    #include <configmanager.h>
     #include <editormanager.h>
     #include <logmanager.h>
-#endif
+#endif // #ifndef CB_PRECOMP
+
+#include <wx/fontutil.h>
+
+#include "abbreviationsconfigpanel.h"
 
 #include "cbcolourmanager.h"
+
 
 BEGIN_EVENT_TABLE(AbbreviationsConfigPanel, cbConfigurationPanel)
 END_EVENT_TABLE()
