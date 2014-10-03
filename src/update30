@@ -132,10 +132,6 @@ cp -f devel30/share/codeblocks/images/settings/*.png output30/share/codeblocks/i
 
 rsync -au --exclude-from=excludes.txt plugins/scriptedwizard/resources/ ${RESDIR}/templates/wizard > /dev/null
 rsync -au --exclude-from=excludes.txt plugins/scriptedwizard/resources/ output30/share/codeblocks/templates/wizard > /dev/null
-rsync -au --exclude-from=excludes.txt templates/common/ output30/share/codeblocks/templates > /dev/null
-rsync -au --exclude-from=excludes.txt templates/unix/ output30/share/codeblocks/templates > /dev/null
-rsync -au --exclude-from=excludes.txt templates/common/ ${RESDIR}/templates > /dev/null
-rsync -au --exclude-from=excludes.txt templates/unix/ ${RESDIR}/templates > /dev/null
 cp -f scripts/*.script ${RESDIR}/scripts > /dev/null
 cp -f scripts/*.script output30/share/codeblocks/scripts > /dev/null
 cp -f scripts/tests/*.script ${RESDIR}/scripts/tests > /dev/null
