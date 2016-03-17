@@ -531,7 +531,10 @@
 		<Linker>
 			<Add option="`$(WX_CONFIG) --libs std,aui,propgrid`" />
 			<Add option="-Wl,--no-undefined" />
+			<Add library="wx_gtk2u_core-3.0.dll" />
+			<Add library="wx_baseu-3.0.dll" />
 			<Add directory="base/tinyxml" />
+			<Add directory="C:/Apps32/Cygwin/lib" />
 		</Linker>
 		<Unit filename="base/tinyxml/tinystr.cpp">
 			<Option target="tinyXML" />
