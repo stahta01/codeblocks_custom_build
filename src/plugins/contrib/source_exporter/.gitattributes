@@ -1,0 +1,12 @@
+# Denote all files that are truly binary and should not be modified.
+/wxPdfDocument/samples/minimal/indic-assamese.txt binary
+/wxPdfDocument/samples/minimal/indic-bengali.txt binary
+/wxPdfDocument/samples/minimal/indic-gujarati.txt binary
+/wxPdfDocument/samples/minimal/indic-hindi.txt binary
+/wxPdfDocument/samples/minimal/indic-kannada.txt binary
+/wxPdfDocument/samples/minimal/indic-malayalam.txt binary
+/wxPdfDocument/samples/minimal/indic-nepali.txt binary
+/wxPdfDocument/samples/minimal/indic-oriya.txt binary
+/wxPdfDocument/samples/minimal/indic-punjabi.txt binary
+/wxPdfDocument/samples/minimal/indic-tamil.txt binary
+/wxPdfDocument/samples/minimal/indic-telugu.txt binary
