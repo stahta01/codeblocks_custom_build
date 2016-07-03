@@ -90,10 +90,6 @@ echo \.svn\      >> excludes.txt
 echo *.gdb       >> excludes.txt
 xcopy /D /y /s plugins\scriptedwizard\resources\* %CB_DEVEL_RESDIR%\templates\wizard /EXCLUDE:excludes.txt >nul
 xcopy /D /y /s plugins\scriptedwizard\resources\* %CB_OUTPUT_RESDIR%\templates\wizard /EXCLUDE:excludes.txt >nul
-xcopy /D /y templates\common\* %CB_OUTPUT_RESDIR%\templates /EXCLUDE:excludes.txt > nul
-xcopy /D /y templates\win32\* %CB_OUTPUT_RESDIR%\templates /EXCLUDE:excludes.txt > nul
-xcopy /D /y templates\common\* %CB_DEVEL_RESDIR%\templates /EXCLUDE:excludes.txt > nul
-xcopy /D /y templates\win32\* %CB_DEVEL_RESDIR%\templates /EXCLUDE:excludes.txt > nul
 xcopy /D /y scripts\*.gdb %CB_OUTPUT_RESDIR% > nul
 xcopy /D /y scripts\* %CB_DEVEL_RESDIR%\scripts /EXCLUDE:excludes.txt > nul
 xcopy /D /y scripts\* %CB_OUTPUT_RESDIR%\scripts /EXCLUDE:excludes.txt > nul
@@ -108,14 +104,4 @@ xcopy /D /y devel\*.exe output > nul
 xcopy /D /y devel\*.dll output > nul
 xcopy /D /y %CB_DEVEL_RESDIR%\plugins\*.dll %CB_OUTPUT_RESDIR%\plugins > nul
 
-echo Stripping debug info from output tree
-strip output\*.exe
-strip output\*.dll
-strip %CB_OUTPUT_RESDIR%\plugins\*.dll
-
-REM Copy these files later as stripping symbols would corrupt them
-echo Copying crash handler files
-xcopy /y exchndl\win32\bin\*.dll devel  > nul
-xcopy /y exchndl\win32\bin\*.yes devel  > nul
-xcopy /y exchndl\win32\bin\*.dll output > nul
-xcopy /y exchndl\win32\bin\*.yes output > nul
+    PAUSE
