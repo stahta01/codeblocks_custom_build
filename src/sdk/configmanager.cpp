@@ -1491,9 +1491,9 @@ void ConfigManager::InitPaths()
     if (data_path_global.IsEmpty())
     {
         if (platform::windows)
-            ConfigManager::data_path_global = app_path + _T("\\share\\codeblocks");
+            ConfigManager::data_path_global = app_path + _T(STANDARD_DATA_PATH);
         else if (platform::macosx)
-            ConfigManager::data_path_global = res_path + _T("/share/codeblocks");
+            ConfigManager::data_path_global = res_path + _T(STANDARD_DATA_PATH);
         else
             ConfigManager::data_path_global = wxStandardPathsBase::Get().GetDataDir();
     }
