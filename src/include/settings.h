@@ -6,6 +6,8 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
+#define STANDARD_DATA_PATH "/share/codeblocks"
+
 /*
 Exclude VC++, because it has silly constraints on importing/exporting classes
 from DLLs. Instead, we build "sdk" as a static library
