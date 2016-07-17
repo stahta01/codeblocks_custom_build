@@ -396,7 +396,7 @@ bool CodeBlocksApp::LoadConfig()
             data = env;
     }
 
-    data.append(_T("/share/codeblocks"));
+    data.append(_T(STANDARD_DATA_PATH));
 
     cfg->Write(_T("data_path"), data);
 
