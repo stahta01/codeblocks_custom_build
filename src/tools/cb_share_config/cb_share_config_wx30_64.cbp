@@ -29,6 +29,7 @@
 			<Add option="-fno-keep-inline-dllexport" />
 			<Add option="-fmessage-length=0" />
 			<Add option="-fexceptions" />
+			<Add option="-std=gnu++11" />
 			<Add option="-DUSE_PCH" />
 			<Add option="-D__GNUWIN32__" />
 			<Add option="-D__WXMSW__" />

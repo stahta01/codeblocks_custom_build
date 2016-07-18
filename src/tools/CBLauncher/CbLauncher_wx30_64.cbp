@@ -30,6 +30,7 @@
 			<Add option="-DUNICODE" />
 			<Add option="-DWINVER=0x0500" />
 			<Add option="-D_WIN64" />
+			<Add option="-std=gnu++11" />
 		</Compiler>
 		<Linker>
 			<Add library="gdi32" />
