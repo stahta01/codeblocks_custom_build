@@ -35,6 +35,7 @@
 			<Add option="-mthreads" />
 			<Add option="-m64" />
 			<Add option="-fno-keep-inline-dllexport" />
+			<Add option="-std=gnu++11" />
 			<Add option="-DcbDEBUG" />
 			<Add option="-DNOPCH" />
 			<Add option="-DHAVE_W32API_H" />
