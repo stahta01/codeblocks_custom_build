@@ -11,9 +11,9 @@
 #include <wx/string.h>
 #ifdef __WXMSW__
     #include <wx/msw/registry.h>
-    #include <shlobj.h> // for SHChangeNotify()
+    #include <wx/msw/wrapshl.h>      // includes <shlobj.h> for SHChangeNotify()
     #ifdef __CBDEBUG__
-        #include <windows.h>
+        #include <wx/msw/wrapwin.h>  // includes <windows.h>
         #include <wincon.h>
     #endif
     #define DDE_SERVICE    _T("CODEBLOCKS")

@@ -5,6 +5,14 @@
 #define WIN32_LEAN_AND_MEAN		// Exclude rarely-used stuff from Windows headers
 // Windows Header Files:
 #include <windows.h>
+#if defined(LoadImage)
+    // Fix Windows winuser.h Header define of LoadImage.
+    #undef LoadImage
+#endif
+#if defined(CreateDialog)
+    // Fix Windows winuser.h Header define of CreateDialog.
+    #undef CreateDialog
+#endif
 #endif
 #ifndef __IUnknown_INTERFACE_DEFINED__
 #include <unknwn.h>
