@@ -47,8 +47,6 @@
 					<Add option="-fexceptions" />
 					<Add option="-DHAVE_W32API_H" />
 					<Add option="-D__WXMSW__" />
-					<Add directory="$(#WX30.include)" />
-					<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
 				</Compiler>
 				<Linker>
 					<Add option="-Wl,--enable-auto-image-base" />
@@ -56,8 +54,6 @@
 					<Add option="-Wl,--add-stdcall-alias" />
 					<Add option="-Wl,--enable-auto-import" />
 					<Add option="-mthreads" />
-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
-					<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)" />
 				</Linker>
 				<ExtraCommands>
 					<Add after="zip -j9 ..\..\..\devel30\share\CodeBlocks\wxSmithAui.zip manifest.xml" />
@@ -66,7 +62,7 @@
 				<Environment>
 					<Variable name="WX_CFG" value="" />
 					<Variable name="WX_SUFFIX" value="u" />
-					<Variable name="WX_VERSION" value="30" />
+					<Variable name="WX_VERSION" value="3.0" />
 				</Environment>
 			</Target>
 			<Environment>
