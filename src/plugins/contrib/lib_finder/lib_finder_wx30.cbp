@@ -57,12 +57,17 @@
 			<Add directory="../../../include/mozilla_chardet/xpcom" />
 			<Add directory="../../../include/mozilla_chardet/xpcom/base" />
 			<Add directory="../../../include/mozilla_chardet/xpcom/glue" />
+			<Add directory="$(TARGET_COMPILER_DIR)lib/wx/include/$(WX_TOOLKIT)-unicode-3.0" />
+			<Add directory="$(TARGET_COMPILER_DIR)include/wx-3.0" />
 		</Compiler>
 		<Linker>
 			<Add option="-Wl,--enable-auto-import" />
 			<Add option="-mthreads" />
 			<Add library="wxflatnotebook" />
 			<Add library="codeblocks" />
+			<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_core-$(WX_VERSION).dll" />
+			<Add library="wx_base$(WX_SUFFIX)_net-$(WX_VERSION).dll" />
+			<Add library="wx_base$(WX_SUFFIX)-$(WX_VERSION).dll" />
 			<Add directory="../../../devel30" />
 		</Linker>
 		<ExtraCommands>

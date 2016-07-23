@@ -18,6 +18,9 @@
 				</Compiler>
 				<Linker>
 					<Add library="codeblocks" />
+					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_aui-$(WX_VERSION).dll" />
+					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_core-$(WX_VERSION).dll" />
+					<Add library="wx_base$(WX_SUFFIX)-$(WX_VERSION).dll" />
 					<Add library="gdi32" />
 					<Add directory="../../../devel30" />
 				</Linker>
@@ -56,6 +59,8 @@
 			<Add directory="../../../include/mozilla_chardet/xpcom" />
 			<Add directory="../../../include/mozilla_chardet/xpcom/base" />
 			<Add directory="../../../include/mozilla_chardet/xpcom/glue" />
+			<Add directory="$(TARGET_COMPILER_DIR)lib/wx/include/$(WX_TOOLKIT)-unicode-$(WX_VERSION)" />
+			<Add directory="$(TARGET_COMPILER_DIR)include/wx-$(WX_VERSION)" />
 		</Compiler>
 		<Linker>
 			<Add option="-mthreads" />
