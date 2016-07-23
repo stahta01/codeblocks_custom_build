@@ -43,12 +43,9 @@
 			<Add option="-DwxUSE_UNICODE" />
 			<Add option="-DBUILDING_PLUGIN" />
 			<Add option="-std=gnu++11" />
-			<Add directory="$(#WX30.include)" />
-			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
 			<Add directory="../../../include" />
 			<Add directory="../../../include/tinyxml" />
 			<Add directory="../../../sdk/wxscintilla/include" />
-			<Add directory="../../../include/tinyxml" />
 			<Add directory="../../../include/scripting/include" />
 			<Add directory="../../../include/scripting/sqplus" />
 			<Add directory="../../../include/scripting/squirrel" />
@@ -61,15 +58,11 @@
 			<Add directory="../../../include/mozilla_chardet/xpcom/base" />
 			<Add directory="../../../include/mozilla_chardet/xpcom/glue" />
 		</Compiler>
-		<ResourceCompiler>
-			<Add directory="$(#WX30.include)" />
-		</ResourceCompiler>
 		<Linker>
 			<Add option="-Wl,--enable-auto-import" />
 			<Add option="-mthreads" />
 			<Add library="wxflatnotebook" />
 			<Add library="codeblocks" />
-			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)" />
 			<Add directory="../../../devel30" />
 		</Linker>
 		<ExtraCommands>

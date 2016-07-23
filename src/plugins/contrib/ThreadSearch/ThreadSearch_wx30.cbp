@@ -21,7 +21,6 @@
 					<Add library="codeblocks" />
 					<Add library="wxcustombutton" />
 					<Add directory="../../../devel30" />
-					<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)" />
 				</Linker>
 			</Target>
 			<Environment>
@@ -59,8 +58,6 @@
 			<Add directory="../../../include/mozilla_chardet/xpcom" />
 			<Add directory="../../../include/mozilla_chardet/xpcom/base" />
 			<Add directory="../../../include/mozilla_chardet/xpcom/glue" />
-			<Add directory="$(#WX30.include)" />
-			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
 			<Add directory="../wxContribItems/wxthings/include" />
 		</Compiler>
 		<Linker>

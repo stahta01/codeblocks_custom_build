@@ -105,16 +105,10 @@
 			<Add option="-DWXMAKINGDLL_PDFDOC" />
 			<Add option="-DwxPDF_USE_WXMODULE=0" />
 			<Add option="-std=gnu++11" />
-			<Add directory="$(#WX30.include)" />
-			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
 			<Add directory="wxPdfDocument/include" />
 		</Compiler>
-		<ResourceCompiler>
-			<Add directory="$(#WX30.include)" />
-		</ResourceCompiler>
 		<Linker>
 			<Add option="-mthreads" />
-			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)" />
 		</Linker>
 		<Unit filename="BaseExporter.cpp">
 			<Option target="default" />

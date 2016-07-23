@@ -87,8 +87,6 @@
 		</VirtualTargets>
 		<Compiler>
 			<Add option="-std=gnu++11" />
-			<Add directory="$(#WX30.include)" />
-			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
 			<Add directory="../../../include" />
 			<Add directory="../../../include/tinyxml" />
 			<Add directory="../../../sdk/wxscintilla/include" />
@@ -96,16 +94,12 @@
 			<Add directory="../../../include/scripting/include" />
 			<Add directory="../../../include/scripting/sqplus" />
 		</Compiler>
-		<ResourceCompiler>
-			<Add directory="$(#WX30.include)" />
-		</ResourceCompiler>
 		<Linker>
 			<Add option="-Wl,--enable-auto-image-base" />
 			<Add option="-Wl,--add-stdcall-alias" />
 			<Add option="-Wl,--enable-auto-import" />
 			<Add library="codeblocks" />
 			<Add directory="../../../devel30" />
-			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)" />
 		</Linker>
 		<Unit filename="HelpConfigDialog.cpp">
 			<Option target="help_plugin" />

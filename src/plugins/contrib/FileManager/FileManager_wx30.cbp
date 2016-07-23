@@ -20,7 +20,6 @@
 				<Linker>
 					<Add library="codeblocks" />
 					<Add directory="../../../devel30" />
-					<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)" />
 				</Linker>
 			</Target>
 			<Environment>
@@ -57,8 +56,6 @@
 			<Add directory="../../../include/mozilla_chardet/xpcom" />
 			<Add directory="../../../include/mozilla_chardet/xpcom/base" />
 			<Add directory="../../../include/mozilla_chardet/xpcom/glue" />
-			<Add directory="$(#WX30.include)" />
-			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
 		</Compiler>
 		<ExtraCommands>
 			<Add after="zip -j9 ..\..\..\devel30\share\codeblocks\FileManager.zip manifest.xml Resources\fileexplorersettings.xrc Resources\CommitBrowser.xrc" />

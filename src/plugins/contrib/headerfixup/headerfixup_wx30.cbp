@@ -27,14 +27,11 @@
 					<Add option="-DcbDEBUG" />
 					<Add option="-DNOPCH" />
 					<Add option="-DwxUSE_UNICODE" />
-					<Add directory="$(#WX30.include)" />
-					<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
 					<Add directory="../../../include" />
 					<Add directory="../../../include/tinyxml" />
 					<Add directory="../../../sdk/wxscintilla/include" />
 				</Compiler>
 				<Linker>
-					<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)" />
 					<Add directory="../../../devel30" />
 				</Linker>
 				<ExtraCommands>

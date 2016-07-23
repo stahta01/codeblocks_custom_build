@@ -52,12 +52,9 @@
 			<Add directory="../../../include/tinyxml" />
 			<Add directory="../../../sdk/wxscintilla/include" />
 			<Add directory="../../../src" />
-			<Add directory="$(#WX30.include)" />
-			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
 			<Add directory="Search" />
 			<Add directory="editor" />
 			<Add directory="." />
-			<Add directory="../../../include/tinyxml" />
 			<Add directory="../../../include/mozilla_chardet" />
 			<Add directory="../../../include/mozilla_chardet/mfbt" />
 			<Add directory="../../../include/mozilla_chardet/nsprpub/pr/include" />
@@ -70,7 +67,6 @@
 			<Add option="-mthreads" />
 			<Add library="codeblocks" />
 			<Add directory="../../../devel30" />
-			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)" />
 		</Linker>
 		<ExtraCommands>
 			<Add after="update30.bat" />

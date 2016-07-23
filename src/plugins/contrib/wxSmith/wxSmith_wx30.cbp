@@ -55,8 +55,6 @@
 			<Add option="-DBUILDING_PLUGIN" />
 			<Add option="-DwxUSE_UNICODE" />
 			<Add option="-std=gnu++11" />
-			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
-			<Add directory="$(#WX30.include)" />
 			<Add directory="../../../include" />
 			<Add directory="../../../include/tinyxml" />
 			<Add directory="../../../sdk/wxscintilla/include" />
@@ -71,9 +69,6 @@
 			<Add directory="../../../include/mozilla_chardet/xpcom/base" />
 			<Add directory="../../../include/mozilla_chardet/xpcom/glue" />
 		</Compiler>
-		<ResourceCompiler>
-			<Add directory="$(#WX30.include)" />
-		</ResourceCompiler>
 		<Linker>
 			<Add option="-Wl,--enable-auto-image-base" />
 			<Add option="-Wl,--export-all-symbols" />
@@ -81,8 +76,6 @@
 			<Add option="-Wl,--enable-auto-import" />
 			<Add option="-mthreads" />
 			<Add library="codeblocks" />
-			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)" />
-			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
 			<Add directory="../../../devel30" />
 		</Linker>
 		<ExtraCommands>

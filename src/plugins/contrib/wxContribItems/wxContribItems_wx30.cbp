@@ -147,13 +147,10 @@
 			<Add option="-DWXMAKINGDLL" />
 			<Add option="-DwxUSE_UNICODE" />
 			<Add option="-std=gnu++11" />
-			<Add directory="$(#WX30.include)" />
-			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
 		</Compiler>
 		<Linker>
 			<Add option="-Wl,--enable-auto-import" />
 			<Add option="-mthreads" />
-			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)" />
 		</Linker>
 		<Unit filename="KWIC/include/wx/KWIC/AngularMeter.h">
 			<Option target="wxKWIC" />
