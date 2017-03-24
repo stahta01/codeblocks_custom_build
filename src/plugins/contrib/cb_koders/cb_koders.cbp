@@ -58,10 +58,10 @@
 			<Add library="wxmsw28$(WX_SUFFIX)" />
 			<Add library="codeblocks" />
 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
-			<Add directory="../../../devel" />
+			<Add directory="$(#cb.bin)" />
 		</Linker>
 		<ExtraCommands>
-			<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\cb_koders.zip manifest.xml" />
+			<Add after="zip -j9 $(#cb.bin)\share\CodeBlocks\cb_koders.zip manifest.xml" />
 			<Mode after="always" />
 		</ExtraCommands>
 		<Unit filename="cb_koders.cpp" />

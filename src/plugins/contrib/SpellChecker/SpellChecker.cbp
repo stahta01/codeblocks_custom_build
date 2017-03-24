@@ -8,9 +8,9 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="hunspell">
-				<Option output="../../../devel/hunspell" prefix_auto="1" extension_auto="1" />
+				<Option output="$(#cb.lib)/hunspell" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
-				<Option object_output="../../../.objs/plugins/contrib/SpellChecker/hunspell" />
+				<Option object_output="$(#cb.obj)/plugins/contrib/SpellChecker/hunspell" />
 				<Option type="2" />
 				<Option compiler="gcc" />
 				<Option createDefFile="1" />
@@ -34,9 +34,9 @@
 				</Linker>
 			</Target>
 			<Target title="wxSpellChecker">
-				<Option output="../../../devel/wxSpellChecker" prefix_auto="1" extension_auto="1" />
+				<Option output="$(#cb.lib)/wxSpellChecker" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
-				<Option object_output="../../../.objs/plugins/contrib/SpellChecker/wxSpellChecker" />
+				<Option object_output="$(#cb.obj)/plugins/contrib/SpellChecker/wxSpellChecker" />
 				<Option type="2" />
 				<Option compiler="gcc" />
 				<Option createDefFile="1" />

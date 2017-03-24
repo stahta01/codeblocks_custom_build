@@ -6,8 +6,8 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="cctest">
-				<Option output="../../devel/cctest" prefix_auto="1" extension_auto="1" />
-				<Option object_output="../../.objs/plugins/codecompletion/cctest" />
+				<Option output="$(#cb.bin)/cctest" prefix_auto="1" extension_auto="1" />
+				<Option object_output="$(#cb.obj)/plugins/codecompletion/cctest" />
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Option projectLinkerOptionsRelation="2" />
@@ -57,7 +57,7 @@
 			<Add library="codeblocks" />
 			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
-			<Add directory="../../devel" />
+			<Add directory="$(#cb.bin)" />
 		</Linker>
 		<Unit filename="cctest/cctest_app.cpp" />
 		<Unit filename="cctest/cctest_frame.cpp" />

@@ -7,13 +7,13 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="SmartIndentCpp">
-				<Option output="../../../devel/share/CodeBlocks/plugins/SmartIndentCpp" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="../../../devel" />
-				<Option object_output="../../../.objs/plugins/contrib/SmartIndent" />
+				<Option output="$(#cb.bin)/share/CodeBlocks/plugins/SmartIndentCpp" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="$(#cb.bin)" />
+				<Option object_output="$(#cb.obj)/plugins/contrib/SmartIndent" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log -p debug" />
-				<Option host_application="../../../devel/codeblocks.exe" />
+				<Option host_application="$(#cb.bin)/codeblocks.exe" />
 				<Option run_host_application_in_terminal="0" />
 				<Option projectCompilerOptionsRelation="2" />
 				<Compiler>
@@ -23,18 +23,18 @@
 				</Compiler>
 				<ExtraCommands>
 					<Add after="cmd.exe /c copy /Y manifest_cpp.xml manifest.xml" />
-					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\SmartIndentCpp.zip manifest.xml" />
+					<Add after="zip -j9 $(#cb.bin)\share\CodeBlocks\SmartIndentCpp.zip manifest.xml" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
 			<Target title="SmartIndentHDL">
-				<Option output="../../../devel/share/CodeBlocks/plugins/SmartIndentHDL" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="../../../devel" />
-				<Option object_output="../../../.objs/plugins/contrib/SmartIndent" />
+				<Option output="$(#cb.bin)/share/CodeBlocks/plugins/SmartIndentHDL" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="$(#cb.bin)" />
+				<Option object_output="$(#cb.obj)/plugins/contrib/SmartIndent" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-check-associations -ns -nd -p debug" />
-				<Option host_application="../../../devel/codeblocks.exe" />
+				<Option host_application="$(#cb.bin)/codeblocks.exe" />
 				<Option run_host_application_in_terminal="0" />
 				<Option projectCompilerOptionsRelation="2" />
 				<Compiler>
@@ -44,18 +44,18 @@
 				</Compiler>
 				<ExtraCommands>
 					<Add after="cmd.exe /c copy /Y manifest_hdl.xml manifest.xml" />
-					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\SmartIndentHDL.zip manifest.xml" />
+					<Add after="zip -j9 $(#cb.bin)\share\CodeBlocks\SmartIndentHDL.zip manifest.xml" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
 			<Target title="SmartIndentPascal">
-				<Option output="../../../devel/share/CodeBlocks/plugins/SmartIndentPascal" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="../../../devel" />
-				<Option object_output="../../../.objs/plugins/contrib/SmartIndent" />
+				<Option output="$(#cb.bin)/share/CodeBlocks/plugins/SmartIndentPascal" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="$(#cb.bin)" />
+				<Option object_output="$(#cb.obj)/plugins/contrib/SmartIndent" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log -p debug" />
-				<Option host_application="../../../devel/codeblocks.exe" />
+				<Option host_application="$(#cb.bin)/codeblocks.exe" />
 				<Option run_host_application_in_terminal="0" />
 				<Option projectCompilerOptionsRelation="2" />
 				<Compiler>
@@ -65,18 +65,18 @@
 				</Compiler>
 				<ExtraCommands>
 					<Add after="cmd.exe /c copy /Y manifest_pascal.xml manifest.xml" />
-					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\SmartIndentPascal.zip manifest.xml" />
+					<Add after="zip -j9 $(#cb.bin)\share\CodeBlocks\SmartIndentPascal.zip manifest.xml" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
 			<Target title="SmartIndentPython">
-				<Option output="../../../devel/share/CodeBlocks/plugins/SmartIndentPython" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="../../../devel" />
-				<Option object_output="../../../.objs/plugins/contrib/SmartIndent" />
+				<Option output="$(#cb.bin)/share/CodeBlocks/plugins/SmartIndentPython" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="$(#cb.bin)" />
+				<Option object_output="$(#cb.obj)/plugins/contrib/SmartIndent" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log -p debug" />
-				<Option host_application="../../../devel/codeblocks.exe" />
+				<Option host_application="$(#cb.bin)/codeblocks.exe" />
 				<Option run_host_application_in_terminal="0" />
 				<Option projectCompilerOptionsRelation="2" />
 				<Compiler>
@@ -86,18 +86,18 @@
 				</Compiler>
 				<ExtraCommands>
 					<Add after="cmd.exe /c copy /Y manifest_python.xml manifest.xml" />
-					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\SmartIndentPython.zip manifest.xml" />
+					<Add after="zip -j9 $(#cb.bin)\share\CodeBlocks\SmartIndentPython.zip manifest.xml" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
 			<Target title="SmartIndentLua">
-				<Option output="../../../devel/share/CodeBlocks/plugins/SmartIndentLua" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="../../../devel" />
-				<Option object_output="../../../.objs/plugins/contrib/SmartIndent" />
+				<Option output="$(#cb.bin)/share/CodeBlocks/plugins/SmartIndentLua" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="$(#cb.bin)" />
+				<Option object_output="$(#cb.obj)/plugins/contrib/SmartIndent" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-check-associations -ns -nd -p debug" />
-				<Option host_application="../../../devel/codeblocks.exe" />
+				<Option host_application="$(#cb.bin)/codeblocks.exe" />
 				<Option run_host_application_in_terminal="0" />
 				<Option projectCompilerOptionsRelation="2" />
 				<Compiler>
@@ -107,18 +107,18 @@
 				</Compiler>
 				<ExtraCommands>
 					<Add after="cmd.exe /c copy /Y manifest_lua.xml manifest.xml" />
-					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\SmartIndentLua.zip manifest.xml" />
+					<Add after="zip -j9 $(#cb.bin)\share\CodeBlocks\SmartIndentLua.zip manifest.xml" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
 			<Target title="SmartIndentFortran">
-				<Option output="../../../devel/share/CodeBlocks/plugins/SmartIndentFortran" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="../../../devel" />
-				<Option object_output="../../../.objs/plugins/contrib/SmartIndent" />
+				<Option output="$(#cb.bin)/share/CodeBlocks/plugins/SmartIndentFortran" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="$(#cb.bin)" />
+				<Option object_output="$(#cb.obj)/plugins/contrib/SmartIndent" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-check-associations -ns -nd -p debug" />
-				<Option host_application="../../../devel/codeblocks.exe" />
+				<Option host_application="$(#cb.bin)/codeblocks.exe" />
 				<Option run_host_application_in_terminal="0" />
 				<Option projectCompilerOptionsRelation="2" />
 				<Compiler>
@@ -128,18 +128,18 @@
 				</Compiler>
 				<ExtraCommands>
 					<Add after="cmd.exe /c copy /Y manifest_fortran.xml manifest.xml" />
-					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\SmartIndentFortran.zip manifest.xml" />
+					<Add after="zip -j9 $(#cb.bin)\share\CodeBlocks\SmartIndentFortran.zip manifest.xml" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
 			<Target title="SmartIndentXML">
-				<Option output="../../../devel/share/CodeBlocks/plugins/SmartIndentXML" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="../../../devel" />
-				<Option object_output="../../../.objs/plugins/contrib/SmartIndent" />
+				<Option output="$(#cb.bin)/share/CodeBlocks/plugins/SmartIndentXML" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="$(#cb.bin)" />
+				<Option object_output="$(#cb.obj)/plugins/contrib/SmartIndent" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log -p debug" />
-				<Option host_application="../../../devel/codeblocks.exe" />
+				<Option host_application="$(#cb.bin)/codeblocks.exe" />
 				<Option run_host_application_in_terminal="0" />
 				<Option projectCompilerOptionsRelation="2" />
 				<Compiler>
@@ -149,7 +149,7 @@
 				</Compiler>
 				<ExtraCommands>
 					<Add after="cmd.exe /c copy /Y manifest_xml.xml manifest.xml" />
-					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\SmartIndentXML.zip manifest.xml" />
+					<Add after="zip -j9 $(#cb.bin)\share\CodeBlocks\SmartIndentXML.zip manifest.xml" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>

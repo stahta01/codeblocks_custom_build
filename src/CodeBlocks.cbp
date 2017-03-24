@@ -9,6 +9,7 @@
 			<Target title="tinyXML">
 				<Option output="base/tinyxml/txml" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
+				<Option object_output="$(#cb.obj)" />
 				<Option type="2" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -17,6 +18,7 @@
 			</Target>
 			<Target title="AutoRevision">
 				<Option output="build_tools/autorevision/autorevision" prefix_auto="1" extension_auto="1" />
+				<Option object_output="$(#cb.obj)" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Option projectLinkerOptionsRelation="1" />
@@ -32,6 +34,7 @@
 			<Target title="ConsoleRunner">
 				<Option output="tools/ConsoleRunner/cb_console_runner" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="tools/ConsoleRunner" />
+				<Option object_output="$(#cb.obj)" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Option projectLinkerOptionsRelation="1" />
@@ -40,8 +43,9 @@
 				</Compiler>
 			</Target>
 			<Target title="Squirrel">
-				<Option output="sdk/scripting/lib/squirrel" prefix_auto="1" extension_auto="1" />
+				<Option output="$(#cb.lib)/sdk/scripting/lib/squirrel" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
+				<Option object_output="$(#cb.obj)" />
 				<Option type="2" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -51,9 +55,10 @@
 				</Compiler>
 			</Target>
 			<Target title="Squirrel std lib">
-				<Option output="sdk/scripting/lib/sqstdlib" prefix_auto="1" extension_auto="1" />
+				<Option output="$(#cb.lib)/sdk/scripting/lib/sqstdlib" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
-				<Option external_deps="sdk/scripting/lib/libsquirrel.a;" />
+				<Option object_output="$(#cb.obj)" />
+				<Option external_deps="$(#cb.lib)/sdk/scripting/lib/libsquirrel.a;" />
 				<Option type="2" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -63,9 +68,10 @@
 				</Compiler>
 			</Target>
 			<Target title="SqPlus">
-				<Option output="sdk/scripting/lib/sqplus" prefix_auto="1" extension_auto="1" />
+				<Option output="$(#cb.lib)/sdk/scripting/lib/sqplus" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
-				<Option external_deps="sdk/scripting/lib/libsquirrel.a;sdk/scripting/lib/libsqstdlib.a;" />
+				<Option object_output="$(#cb.obj)" />
+				<Option external_deps="$(#cb.lib)/sdk/scripting/lib/libsquirrel.a;$(#cb.lib)/sdk/scripting/lib/libsqstdlib.a;" />
 				<Option type="2" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -75,8 +81,9 @@
 				</Compiler>
 			</Target>
 			<Target title="scintilla">
-				<Option output="devel/wxscintilla_cb" prefix_auto="1" extension_auto="1" />
+				<Option output="$(#cb.lib)/wxscintilla_cb" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
+				<Option object_output="$(#cb.obj)" />
 				<Option type="2" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -101,10 +108,12 @@
 				</Linker>
 			</Target>
 			<Target title="wxpropgrid">
-				<Option output="devel/wxpropgrid" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="devel" />
+				<Option output="$(#cb.bin)/wxpropgrid" imp_lib="$(#cb.lib)/$(TARGET_OUTPUT_BASENAME)" def_file="$(#cb.lib)/$(TARGET_OUTPUT_BASENAME)" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="$(#cb.bin)" />
+				<Option object_output="$(#cb.obj)" />
 				<Option type="3" />
 				<Option compiler="gcc" />
+				<Option createDefFile="1" />
 				<Option createStaticLib="1" />
 				<Compiler>
 					<Add option="-DEXPORT_LIB" />
@@ -123,12 +132,14 @@
 				</Linker>
 			</Target>
 			<Target title="sdk">
-				<Option output="devel/codeblocks" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="devel" />
-				<Option external_deps="base/tinyxml/libtxml.a;sdk/scripting/lib/libsquirrel.a;sdk/scripting/lib/libsqstdlib.a;sdk/scripting/lib/libsqplus.a;devel/libwxscintilla_cb.a;" />
+				<Option output="$(#cb.bin)/codeblocks" imp_lib="$(#cb.lib)/$(TARGET_OUTPUT_BASENAME)" def_file="$(#cb.lib)/$(TARGET_OUTPUT_BASENAME)" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="$(#cb.bin)" />
+				<Option object_output="$(#cb.obj)" />
+				<Option external_deps="base/tinyxml/libtxml.a;$(#cb.lib)/sdk/scripting/lib/libsquirrel.a;$(#cb.lib)/sdk/scripting/lib/libsqstdlib.a;$(#cb.lib)/sdk/scripting/lib/libsqplus.a;$(#cb.lib)/libwxscintilla_cb.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --verbose -p debug" />
+				<Option createDefFile="1" />
 				<Option createStaticLib="1" />
 				<Option projectLinkerOptionsRelation="2" />
 				<Compiler>
@@ -318,17 +329,18 @@
 					<Add option="-mthreads" />
 					<Add library="codeblocks" />
 					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
-					<Add directory="devel" />
+					<Add directory="$(#cb.bin)" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="cmd /c if not exist devel\share\CodeBlocks mkdir devel\share\CodeBlocks" />
-					<Add after="zip -jq9 devel\share\CodeBlocks\autosave.zip plugins\autosave\manifest.xml plugins\autosave\*.xrc" />
+					<Add after="cmd /c if not exist $(#cb.bin)\share\CodeBlocks mkdir $(#cb.bin)\share\CodeBlocks" />
+					<Add after="zip -jq9 $(#cb.bin)\share\CodeBlocks\autosave.zip plugins\autosave\manifest.xml plugins\autosave\*.xrc" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
 			<Target title="Compiler depslib">
 				<Option output="plugins/compilergcc/depslib/depslib" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
+				<Option object_output="$(#cb.obj)" />
 				<Option type="2" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -340,9 +352,10 @@
 				</Linker>
 			</Target>
 			<Target title="Compiler">
-				<Option output="devel/share/CodeBlocks/plugins/compiler" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="devel" />
-				<Option external_deps="devel/libcodeblocks.a;plugins/compilergcc/depslib/libdepslib.a;" />
+				<Option output="$(#cb.bin)/share/CodeBlocks/plugins/compiler" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="$(#cb.bin)" />
+				<Option object_output="$(#cb.obj)" />
+				<Option external_deps="$(#cb.lib)/libcodeblocks.a;plugins/compilergcc/depslib/libdepslib.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -366,22 +379,23 @@
 					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
 					<Add library="depslib" />
 					<Add library="wxpropgrid" />
-					<Add directory="devel" />
+					<Add directory="$(#cb.bin)" />
 					<Add directory="plugins/compilergcc/depslib" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="cmd /c if not exist devel\share\CodeBlocks mkdir devel\share\CodeBlocks" />
-					<Add after="zip -jq9 devel\share\CodeBlocks\compiler.zip plugins\compilergcc\resources\manifest.xml plugins\compilergcc\resources\*.xrc" />
-					<Add after='cmd /c &quot;cd plugins\compilergcc\resources &amp; zip -0 -q ..\..\..\devel\share\CodeBlocks\compiler.zip images\*.png images\16x16\*.png&quot;' />
-					<Add after="cmd /c if not exist devel\share\CodeBlocks\compilers mkdir devel\share\CodeBlocks\compilers" />
-					<Add after="cmd /c xcopy /D /Y plugins\compilergcc\resources\compilers\*.* devel\share\CodeBlocks\compilers" />
+					<Add after="cmd /c if not exist $(#cb.bin)\share\CodeBlocks mkdir $(#cb.bin)\share\CodeBlocks" />
+					<Add after="zip -jq9 $(#cb.bin)\share\CodeBlocks\compiler.zip plugins\compilergcc\resources\manifest.xml plugins\compilergcc\resources\*.xrc" />
+					<Add after='cmd /c &quot;cd plugins\compilergcc\resources &amp; zip -0 -q $(#cb.bin)\share\CodeBlocks\compiler.zip images\*.png images\16x16\*.png&quot;' />
+					<Add after="cmd /c if not exist $(#cb.bin)\share\CodeBlocks\compilers mkdir $(#cb.bin)\share\CodeBlocks\compilers" />
+					<Add after="cmd /c xcopy /D /Y plugins\compilergcc\resources\compilers\*.* $(#cb.bin)\share\CodeBlocks\compilers" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
 			<Target title="Debugger">
-				<Option output="devel/share/CodeBlocks/plugins/debugger" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="devel" />
-				<Option external_deps="devel/libcodeblocks.a;" />
+				<Option output="$(#cb.bin)/share/CodeBlocks/plugins/debugger" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="$(#cb.bin)" />
+				<Option object_output="$(#cb.obj)" />
+				<Option external_deps="$(#cb.lib)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -402,18 +416,19 @@
 					<Add option="-mthreads" />
 					<Add library="codeblocks" />
 					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
-					<Add directory="devel" />
+					<Add directory="$(#cb.bin)" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="cmd /c if not exist devel\share\CodeBlocks mkdir devel\share\CodeBlocks" />
-					<Add after="zip -jq9 devel\share\CodeBlocks\debugger.zip plugins\debuggergdb\resources\manifest.xml plugins\debuggergdb\resources\*.xrc" />
+					<Add after="cmd /c if not exist $(#cb.bin)\share\CodeBlocks mkdir $(#cb.bin)\share\CodeBlocks" />
+					<Add after="zip -jq9 $(#cb.bin)\share\CodeBlocks\debugger.zip plugins\debuggergdb\resources\manifest.xml plugins\debuggergdb\resources\*.xrc" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
 			<Target title="Code-completion">
-				<Option output="devel/share/CodeBlocks/plugins/codecompletion" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="devel" />
-				<Option external_deps="devel/libcodeblocks.a;" />
+				<Option output="$(#cb.bin)/share/CodeBlocks/plugins/codecompletion" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="$(#cb.bin)" />
+				<Option object_output="$(#cb.obj)" />
+				<Option external_deps="$(#cb.lib)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -438,18 +453,19 @@
 					<Add option="-mthreads" />
 					<Add library="codeblocks" />
 					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
-					<Add directory="devel" />
+					<Add directory="$(#cb.bin)" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="cmd /c if not exist devel\share\CodeBlocks mkdir devel\share\CodeBlocks" />
-					<Add after="zip -jq9 devel\share\CodeBlocks\codecompletion.zip plugins\codecompletion\resources\manifest.xml plugins\codecompletion\resources\*.xrc" />
+					<Add after="cmd /c if not exist $(#cb.bin)\share\CodeBlocks mkdir $(#cb.bin)\share\CodeBlocks" />
+					<Add after="zip -jq9 $(#cb.bin)\share\CodeBlocks\codecompletion.zip plugins\codecompletion\resources\manifest.xml plugins\codecompletion\resources\*.xrc" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
 			<Target title="Class wizard">
-				<Option output="devel/share/CodeBlocks/plugins/classwizard" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="devel" />
-				<Option external_deps="devel/libcodeblocks.a;" />
+				<Option output="$(#cb.bin)/share/CodeBlocks/plugins/classwizard" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="$(#cb.bin)" />
+				<Option object_output="$(#cb.obj)" />
+				<Option external_deps="$(#cb.lib)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -468,18 +484,19 @@
 					<Add option="-mthreads" />
 					<Add library="codeblocks" />
 					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
-					<Add directory="devel" />
+					<Add directory="$(#cb.bin)" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="cmd /c if not exist devel\share\CodeBlocks mkdir devel\share\CodeBlocks" />
-					<Add after="zip -jq9 devel\share\CodeBlocks\classwizard.zip plugins\classwizard\resources\manifest.xml plugins\classwizard\resources\*.xrc" />
+					<Add after="cmd /c if not exist $(#cb.bin)\share\CodeBlocks mkdir $(#cb.bin)\share\CodeBlocks" />
+					<Add after="zip -jq9 $(#cb.bin)\share\CodeBlocks\classwizard.zip plugins\classwizard\resources\manifest.xml plugins\classwizard\resources\*.xrc" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
 			<Target title="Default MIME handler">
-				<Option output="devel/share/CodeBlocks/plugins/defaultmimehandler" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="devel" />
-				<Option external_deps="devel/libcodeblocks.a;" />
+				<Option output="$(#cb.bin)/share/CodeBlocks/plugins/defaultmimehandler" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="$(#cb.bin)" />
+				<Option object_output="$(#cb.obj)" />
+				<Option external_deps="$(#cb.lib)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -498,18 +515,19 @@
 					<Add option="-mthreads" />
 					<Add library="codeblocks" />
 					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
-					<Add directory="devel" />
+					<Add directory="$(#cb.bin)" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="cmd /c if not exist devel\share\CodeBlocks mkdir devel\share\CodeBlocks" />
-					<Add after="zip -jq9 devel\share\CodeBlocks\defaultmimehandler.zip plugins\defaultmimehandler\resources\manifest.xml plugins\defaultmimehandler\resources\*.xrc" />
+					<Add after="cmd /c if not exist $(#cb.bin)\share\CodeBlocks mkdir $(#cb.bin)\share\CodeBlocks" />
+					<Add after="zip -jq9 $(#cb.bin)\share\CodeBlocks\defaultmimehandler.zip plugins\defaultmimehandler\resources\manifest.xml plugins\defaultmimehandler\resources\*.xrc" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
 			<Target title="Occurrences Highlighting">
-				<Option output="devel/share/CodeBlocks/plugins/OccurrencesHighlighting" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="devel" />
-				<Option external_deps="devel/libcodeblocks.a;" />
+				<Option output="$(#cb.bin)/share/CodeBlocks/plugins/OccurrencesHighlighting" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="$(#cb.bin)" />
+				<Option object_output="$(#cb.obj)" />
+				<Option external_deps="$(#cb.lib)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -528,18 +546,19 @@
 					<Add option="-mthreads" />
 					<Add library="codeblocks" />
 					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
-					<Add directory="devel" />
+					<Add directory="$(#cb.bin)" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="cmd /c if not exist devel\share\CodeBlocks mkdir devel\share\CodeBlocks" />
-					<Add after="zip -j9 devel\share\CodeBlocks\OccurrencesHighlighting.zip plugins\occurrenceshighlighting\resources\manifest.xml plugins\occurrenceshighlighting\resources\*.xrc" />
+					<Add after="cmd /c if not exist $(#cb.bin)\share\CodeBlocks mkdir $(#cb.bin)\share\CodeBlocks" />
+					<Add after="zip -j9 $(#cb.bin)\share\CodeBlocks\OccurrencesHighlighting.zip plugins\occurrenceshighlighting\resources\manifest.xml plugins\occurrenceshighlighting\resources\*.xrc" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
 			<Target title="Open files list">
-				<Option output="devel/share/CodeBlocks/plugins/openfileslist" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="devel" />
-				<Option external_deps="devel/libcodeblocks.a;" />
+				<Option output="$(#cb.bin)/share/CodeBlocks/plugins/openfileslist" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="$(#cb.bin)" />
+				<Option object_output="$(#cb.obj)" />
+				<Option external_deps="$(#cb.lib)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -559,18 +578,19 @@
 					<Add option="-mthreads" />
 					<Add library="codeblocks" />
 					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
-					<Add directory="devel" />
+					<Add directory="$(#cb.bin)" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="cmd /c if not exist devel\share\CodeBlocks mkdir devel\share\CodeBlocks" />
-					<Add after="zip -jq9 devel\share\CodeBlocks\openfileslist.zip plugins\openfileslist\manifest.xml" />
+					<Add after="cmd /c if not exist $(#cb.bin)\share\CodeBlocks mkdir $(#cb.bin)\share\CodeBlocks" />
+					<Add after="zip -jq9 $(#cb.bin)\share\CodeBlocks\openfileslist.zip plugins\openfileslist\manifest.xml" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
 			<Target title="Projects-workspaces importer">
-				<Option output="devel/share/CodeBlocks/plugins/projectsimporter" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="devel" />
-				<Option external_deps="devel/libcodeblocks.a;" />
+				<Option output="$(#cb.bin)/share/CodeBlocks/plugins/projectsimporter" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="$(#cb.bin)" />
+				<Option object_output="$(#cb.obj)" />
+				<Option external_deps="$(#cb.lib)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -595,18 +615,19 @@
 					<Add option="-mthreads" />
 					<Add library="codeblocks" />
 					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
-					<Add directory="devel" />
+					<Add directory="$(#cb.bin)" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="cmd /c if not exist devel\share\CodeBlocks mkdir devel\share\CodeBlocks" />
-					<Add after="zip -jq9 devel\share\CodeBlocks\projectsimporter.zip plugins\projectsimporter\resources\manifest.xml plugins\projectsimporter\resources\*.xrc" />
+					<Add after="cmd /c if not exist $(#cb.bin)\share\CodeBlocks mkdir $(#cb.bin)\share\CodeBlocks" />
+					<Add after="zip -jq9 $(#cb.bin)\share\CodeBlocks\projectsimporter.zip plugins\projectsimporter\resources\manifest.xml plugins\projectsimporter\resources\*.xrc" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
 			<Target title="Scripted wizard">
-				<Option output="devel/share/CodeBlocks/plugins/scriptedwizard" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="devel" />
-				<Option external_deps="devel/libcodeblocks.a;" />
+				<Option output="$(#cb.bin)/share/CodeBlocks/plugins/scriptedwizard" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="$(#cb.bin)" />
+				<Option object_output="$(#cb.obj)" />
+				<Option external_deps="$(#cb.lib)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -627,18 +648,19 @@
 					<Add option="-mthreads" />
 					<Add library="codeblocks" />
 					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
-					<Add directory="devel" />
+					<Add directory="$(#cb.bin)" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="cmd /c if not exist devel\share\CodeBlocks mkdir devel\share\CodeBlocks" />
-					<Add after="zip -jq9 devel\share\CodeBlocks\scriptedwizard.zip plugins\scriptedwizard\resources\manifest.xml" />
+					<Add after="cmd /c if not exist $(#cb.bin)\share\CodeBlocks mkdir $(#cb.bin)\share\CodeBlocks" />
+					<Add after="zip -jq9 $(#cb.bin)\share\CodeBlocks\scriptedwizard.zip plugins\scriptedwizard\resources\manifest.xml" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
 			<Target title="To-do">
-				<Option output="devel/share/CodeBlocks/plugins/todo" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="devel" />
-				<Option external_deps="devel/libcodeblocks.a;" />
+				<Option output="$(#cb.bin)/share/CodeBlocks/plugins/todo" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="$(#cb.bin)" />
+				<Option object_output="$(#cb.obj)" />
+				<Option external_deps="$(#cb.lib)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -663,18 +685,19 @@
 					<Add option="-mthreads" />
 					<Add library="codeblocks" />
 					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
-					<Add directory="devel" />
+					<Add directory="$(#cb.bin)" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="cmd /c if not exist devel\share\CodeBlocks mkdir devel\share\CodeBlocks" />
-					<Add after="zip -jq9 devel\share\CodeBlocks\todo.zip plugins\todo\resources\manifest.xml plugins\todo\resources\*.xrc" />
+					<Add after="cmd /c if not exist $(#cb.bin)\share\CodeBlocks mkdir $(#cb.bin)\share\CodeBlocks" />
+					<Add after="zip -jq9 $(#cb.bin)\share\CodeBlocks\todo.zip plugins\todo\resources\manifest.xml plugins\todo\resources\*.xrc" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
 			<Target title="XP look &amp; feel">
-				<Option output="devel/share/CodeBlocks/plugins/xpmanifest" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="devel" />
-				<Option external_deps="devel/libcodeblocks.a;" />
+				<Option output="$(#cb.bin)/share/CodeBlocks/plugins/xpmanifest" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="$(#cb.bin)" />
+				<Option object_output="$(#cb.obj)" />
+				<Option external_deps="$(#cb.lib)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -693,11 +716,11 @@
 					<Add option="-mthreads" />
 					<Add library="codeblocks" />
 					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
-					<Add directory="devel" />
+					<Add directory="$(#cb.bin)" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="cmd /c if not exist devel\share\CodeBlocks mkdir devel\share\CodeBlocks" />
-					<Add after="zip -jq9 devel\share\CodeBlocks\xpmanifest.zip plugins\xpmanifest\manifest.xml" />
+					<Add after="cmd /c if not exist $(#cb.bin)\share\CodeBlocks mkdir $(#cb.bin)\share\CodeBlocks" />
+					<Add after="zip -jq9 $(#cb.bin)\share\CodeBlocks\xpmanifest.zip plugins\xpmanifest\manifest.xml" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
@@ -731,7 +754,7 @@
 			<Add option="-DwxUSE_UNICODE" />
 			<Add directory="$(#WX.include)" />
 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
-			<Add directory="sdk/wxscintilla/include" />
+			<Add directory="$(#cb.include)/wxscintilla/include" />
 			<Add directory="sdk/wxpropgrid/include" />
 			<Add directory="include/tinyxml" />
 		</Compiler>
@@ -1311,6 +1334,10 @@
 		</Unit>
 		<Unit filename="include/workspaceloader.h">
 			<Option target="sdk" />
+		</Unit>
+		<Unit filename="include/wxscintilla/include/wx/wxscintilla.h">
+			<Option target="sdk" />
+			<Option target="scintilla" />
 		</Unit>
 		<Unit filename="include/xtra_res.h">
 			<Option target="sdk" />
@@ -3359,9 +3386,6 @@
 		</Unit>
 		<Unit filename="sdk/wxpropgrid/src/xh_propgrid.cpp">
 			<Option target="wxpropgrid" />
-		</Unit>
-		<Unit filename="sdk/wxscintilla/include/wx/wxscintilla.h">
-			<Option target="scintilla" />
 		</Unit>
 		<Unit filename="sdk/wxscintilla/src/PlatWX.cpp">
 			<Option target="scintilla" />

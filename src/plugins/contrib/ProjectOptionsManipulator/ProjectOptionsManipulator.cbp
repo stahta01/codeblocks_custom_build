@@ -8,9 +8,9 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="default">
-				<Option output="../../../devel/share/CodeBlocks/plugins/ProjectOptionsManipulator" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="../../../devel" />
-				<Option object_output="../../../.objs/plugins/contrib/ProjectOptionsManipulator" />
+				<Option output="$(#cb.bin)/share/CodeBlocks/plugins/ProjectOptionsManipulator" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="$(#cb.bin)" />
+				<Option object_output="$(#cb.obj)/plugins/contrib/ProjectOptionsManipulator" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -58,11 +58,11 @@
 			<Add option="-mthreads" />
 			<Add library="codeblocks" />
 			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
-			<Add directory="../../../devel" />
+			<Add directory="$(#cb.bin)" />
 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
 		</Linker>
 		<ExtraCommands>
-			<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\ProjectOptionsManipulator.zip manifest.xml" />
+			<Add after="zip -j9 $(#cb.bin)\share\CodeBlocks\ProjectOptionsManipulator.zip manifest.xml" />
 		</ExtraCommands>
 		<Unit filename="ProjectOptionsManipulator.cpp" />
 		<Unit filename="ProjectOptionsManipulator.h" />

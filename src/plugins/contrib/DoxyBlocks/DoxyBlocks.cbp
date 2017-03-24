@@ -9,12 +9,12 @@
 		<Build>
 			<Target title="default">
 				<Option platforms="Windows;" />
-				<Option output="../../../devel/share/CodeBlocks/plugins/DoxyBlocks" prefix_auto="1" extension_auto="1" />
-				<Option object_output="../../../.objs/plugins/contrib/DoxyBlocks" />
+				<Option output="$(#cb.bin)/share/CodeBlocks/plugins/DoxyBlocks" prefix_auto="1" extension_auto="1" />
+				<Option object_output="$(#cb.obj)/plugins/contrib/DoxyBlocks" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
-				<Option host_application="../../../devel/codeblocks.exe" />
+				<Option host_application="$(#cb.bin)/codeblocks.exe" />
 				<Option run_host_application_in_terminal="0" />
 				<Compiler>
 					<Add option="$(#CB_RELEASE_TYPE)" />
@@ -45,14 +45,18 @@
 					<Add option="-mthreads" />
 					<Add library="codeblocks" />
 					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
-					<Add directory="../../../devel" />
+					<Add directory="$(#cb.bin)" />
 					<Add directory="$(#wx.lib)" />
 					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="zip -j9 ..\..\..\devel\share\codeblocks\DoxyBlocks.zip manifest.xml" />
-					<Add after="zip -9 ..\..\..\devel\share\codeblocks\DoxyBlocks.zip images\*.png images\16x16\*.png" />
-					<Add after="update.bat" />
+					<Add after="zip -j9 $(#cb.bin)\share\codeblocks\DoxyBlocks.zip manifest.xml" />
+					<Add after="zip -9 $(#cb.bin)\share\codeblocks\DoxyBlocks.zip images\*.png images\16x16\*.png" />
+					<Add after="CMD /X /C if not exist $(#cb.bin)\share\CodeBlocks\images\settings\ md $(#cb.bin)\share\CodeBlocks\images\settings" />
+					<Add after="CMD /X /C if not exist $(#cb.bin)\share\CodeBlocks\images\DoxyBlocks\16x16\ md $(#cb.bin)\share\CodeBlocks\images\DoxyBlocks\16x16" />
+					<Add after="CMD /C copy images\*.png $(#cb.bin)\share\CodeBlocks\images\DoxyBlocks\" />
+					<Add after="CMD /C copy images\16x16\*.png $(#cb.bin)\share\CodeBlocks\images\DoxyBlocks\16x16\" />
+					<Add after="CMD /C copy *.png $(#cb.bin)\share\CodeBlocks\images\settings\" />
 					<Mode after="always" />
 				</ExtraCommands>
 				<Environment>
@@ -86,8 +90,6 @@
 		<Unit filename="Expressions.h" />
 		<Unit filename="ExtractDocs.cpp" />
 		<Unit filename="manifest.xml" />
-		<Unit filename="update" />
-		<Unit filename="update.bat" />
 		<Unit filename="version.h" />
 		<Extensions>
 			<code_completion />

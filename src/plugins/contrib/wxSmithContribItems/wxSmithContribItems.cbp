@@ -96,7 +96,7 @@
 			<Add option="-mthreads" />
 			<Add library="wxpropgrid" />
 			<Add library="wxmsw28$(WX_SUFFIX)" />
-			<Add directory="../../../devel" />
+			<Add directory="$(#cb.bin)" />
 			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
 		</Linker>
 		<Unit filename="manifest.xml" />

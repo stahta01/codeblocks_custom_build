@@ -68,8 +68,14 @@
 			<Add option="-mthreads" />
 		</Linker>
 		<ExtraCommands>
-			<Add after="zip -j9 ..\..\..\devel\share\codeblocks\ThreadSearch.zip manifest.xml" />
-			<Add after="update.bat" />
+			<Add after="zip -j9 $(#cb.bin)\share\codeblocks\ThreadSearch.zip manifest.xml" />
+			<Add after="CMD /X /C if not exist $(#cb.bin)\share\CodeBlocks\images\ThreadSearch\16x16\ md $(#cb.bin)\share\CodeBlocks\images\ThreadSearch\16x16" />
+			<Add after="CMD /X /C if not exist $(#cb.bin)\share\CodeBlocks\images\ThreadSearch\22x22\ md $(#cb.bin)\share\CodeBlocks\images\ThreadSearch\22x22" />
+			<Add after="CMD /X /C if not exist  $(#cb.bin)\share\CodeBlocks\images\settings\ md $(#cb.bin)\share\CodeBlocks\images\settings" />
+			<Add after="CMD /C copy /Y .\resources\images\*.png $(#cb.bin)\share\CodeBlocks\images\ThreadSearch\" />
+			<Add after="CMD /C copy /Y .\resources\images\16x16\*.png $(#cb.bin)\share\CodeBlocks\images\ThreadSearch\16x16\" />
+			<Add after="CMD /C copy /Y .\resources\images\22x22\*.png $(#cb.bin)\share\CodeBlocks\images\ThreadSearch\22x22\" />
+			<Add after="CMD /C copy /Y .\resources\*.png $(#cb.bin)\share\CodeBlocks\images\settings\" />
 			<Mode after="always" />
 		</ExtraCommands>
 		<Unit filename="DirectoryParamsPanel.cpp" />
@@ -112,8 +118,6 @@
 		<Unit filename="ThreadSearchViewManagerMessagesNotebook.h" />
 		<Unit filename="logging.h" />
 		<Unit filename="manifest.xml" />
-		<Unit filename="update" />
-		<Unit filename="update.bat" />
 		<Extensions>
 			<code_completion />
 			<envvars />

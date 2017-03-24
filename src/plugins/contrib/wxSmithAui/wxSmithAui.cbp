@@ -28,19 +28,19 @@
 					<Add option="-Wl,--no-undefined" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="zip -j9 ../../../devel/share/codeblocks/wxSmithAui.zip manifest.xml" />
+					<Add after="zip -j9 $(#cb.bin)/share/codeblocks/wxSmithAui.zip manifest.xml" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
 			<Target title="Windows">
 				<Option platforms="Windows;" />
-				<Option output="../../../devel/share/codeblocks/plugins/wxSmithAui" prefix_auto="1" extension_auto="1" />
-				<Option object_output="../../../.objs/plugins/contrib/wxSmithAui" />
-				<Option external_deps="../../../devel/wxsmithlib.dll;" />
+				<Option output="$(#cb.bin)/share/codeblocks/plugins/wxSmithAui" prefix_auto="1" extension_auto="1" />
+				<Option object_output="$(#cb.obj)/plugins/contrib/wxSmithAui" />
+				<Option external_deps="$(#cb.bin)/wxsmithlib.dll;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
-				<Option host_application="../../../devel/codeblocks.exe" />
+				<Option host_application="$(#cb.bin)/codeblocks.exe" />
 				<Option run_host_application_in_terminal="0" />
 				<Compiler>
 					<Add option="$(#CB_RELEASE_TYPE)" />
@@ -65,7 +65,7 @@
 					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\wxSmithAui.zip manifest.xml" />
+					<Add after="zip -j9 $(#cb.bin)\share\CodeBlocks\wxSmithAui.zip manifest.xml" />
 					<Mode after="always" />
 				</ExtraCommands>
 				<Environment>
@@ -95,7 +95,7 @@
 			<Add library="codeblocks" />
 			<Add library="wxsmithlib" />
 			<Add library="wxpropgrid" />
-			<Add directory="../../../devel" />
+			<Add directory="$(#cb.bin)" />
 		</Linker>
 		<Unit filename="manifest.xml" />
 		<Unit filename="wxAuiManager/wxSmithAuiManager.h" />
