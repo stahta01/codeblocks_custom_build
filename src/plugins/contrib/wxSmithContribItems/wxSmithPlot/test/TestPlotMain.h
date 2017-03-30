@@ -17,7 +17,7 @@
 #include <wx/frame.h>
 //*)
 
-#include <mpMarker.h>
+// #include <mpMarker.h>
 
 class TestPlotFrame: public wxFrame
 {
