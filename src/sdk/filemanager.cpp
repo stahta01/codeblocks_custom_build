@@ -13,6 +13,7 @@
     #include "filemanager.h"
     #include "safedelete.h"
     #include "cbeditor.h"
+    #include "configmanager.h"
     #include "editormanager.h"
     #include "infowindow.h"
 #endif

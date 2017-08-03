@@ -7,8 +7,7 @@
  * $HeadURL$
  */
 
-#include "highlighter.h"
-
+// sdk.h must be the first include in the file to work as a PCH
 #include <sdk.h> // Code::Blocks SDK
 
 #ifndef CB_PRECOMP

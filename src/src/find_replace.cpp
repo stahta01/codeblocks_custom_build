@@ -9,6 +9,7 @@
     #include "cbauibook.h"
     #include "cbeditor.h"
     #include "cbproject.h"
+    #include "configmanager.h"
     #include "editormanager.h"
     #include "infowindow.h"
     #include "projectfile.h"

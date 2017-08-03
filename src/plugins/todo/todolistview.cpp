@@ -23,6 +23,7 @@
 
     #include "cbeditor.h"
     #include "cbproject.h"
+    #include "configmanager.h"
     #include "editormanager.h"
     #include "filemanager.h"
     #include "globals.h"

@@ -12,15 +12,18 @@
 #ifndef CB_PRECOMP
     #include "globals.h"
     #include "manager.h"
+    #include "filemanager.h"
     #include "logmanager.h"
     #include <wx/dynarray.h>
     #include <wx/regex.h>
     #include <wx/wxscintilla.h>
 #endif
 
+#include "tinyxml/tinyxml.h" // TiXmlDocument
+
 #include "editorcolourset.h"
 #include "editorlexerloader.h"
-#include "filemanager.h"
+
 
 EditorLexerLoader::EditorLexerLoader(EditorColourSet* target)
     : m_pTarget(target)
